@@ -32,28 +32,62 @@
 // _____________________________________________________________________________
 
 // -----FIRST ATTEMPT-----
-function bitwiseAND(n1, n2) {
-  const convertToBinary = (decimal) => decimal.toString(2);
-  const firstNumArray = [...convertToBinary(n1).padStart(10, 0)];
-  const secondNumArray = [...convertToBinary(n2).padStart(10, 0)];
+// function bitwiseAND(n1, n2) {
+//   const convertToBinary = (decimal) => decimal.toString(2);
+//   const firstNumArray = [...convertToBinary(n1).padStart(15, 0)];
+//   const secondNumArray = [...convertToBinary(n2).padStart(15, 0)];
 
-  // return `${firstNum}, ${secondNum}`;
-  // return firstNumArray;
+//   //compare
+//   const binaryAndArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryAndArray.push(digit);
+//   }
 
-  //compare
-  const binaryAndArray = [];
-  for (let i = 0; i < firstNumArray.length; i++) {
-    const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0; // 1's in quotes here because the array elements are strings, not numbers
-    binaryAndArray.push(digit);
-  }
-  // return binaryAnd;
+//   // convert comparison result back to decimal
+//   const binaryAndStr = binaryAndArray.join("");
 
-  // convert comparison result back to decimal
-  const binaryAndStr = binaryAndArray.join("");
+//   // return decimal
+//   return Number.parseInt(binaryAndStr, 2);
+// }
 
-  // return decimal
-  return Number.parseInt(binaryAndStr, 2);
-}
+// function bitwiseOR(n1, n2) {
+//   const convertToBinary = (decimal) => decimal.toString(2);
+//   const firstNumArray = [...convertToBinary(n1).padStart(15, 0)];
+//   const secondNumArray = [...convertToBinary(n2).padStart(15, 0)];
+
+//   //compare
+//   const binaryOrArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === "1" || secondNumArray[i] === "1" ? 1 : 0; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryOrArray.push(digit);
+//   }
+
+//   // convert comparison result back to decimal
+//   const binaryOrStr = binaryOrArray.join("");
+
+//   // return decimal
+//   return Number.parseInt(binaryOrStr, 2);
+// }
+
+// function bitwiseXOR(n1, n2) {
+//   const convertToBinary = (decimal) => decimal.toString(2);
+//   const firstNumArray = [...convertToBinary(n1).padStart(15, 0)];
+//   const secondNumArray = [...convertToBinary(n2).padStart(15, 0)];
+
+//   //compare
+//   const binaryXORArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === secondNumArray[i] ? 0 : 1; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryXORArray.push(digit);
+//   }
+
+//   // convert comparison result back to decimal
+//   const binaryXORStr = binaryXORArray.join("");
+
+//   // return decimal
+//   return Number.parseInt(binaryXORStr, 2);
+// }
 
 // ---APPROACH---
 // (I see that there are already operators for this built into js, but want to try developing myself first.)
@@ -63,6 +97,112 @@ function bitwiseAND(n1, n2) {
 // compare the two binary numbers, depending on "AND", "OR", or "XOR" requirement, with single binary result
 // convert that binary result back to decimal
 // return decimal number in from function
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// SECOND ATTEMPT
+// const convertToBinary = (decimal) => decimal.toString(2);
+// const binaryArray = (originalNum) => [
+//   ...convertToBinary(originalNum).padStart(15, 0),
+// ];
+
+// function bitwiseAND(n1, n2) {
+//   const firstNumArray = binaryArray(n1);
+//   const secondNumArray = binaryArray(n2);
+
+//   //compare
+//   const binaryAndArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryAndArray.push(digit);
+//   }
+//   // convert comparison result back to decimal
+//   const binaryAndStr = binaryAndArray.join("");
+//   // return decimal
+//   return Number.parseInt(binaryAndStr, 2);
+// }
+
+// function bitwiseOR(n1, n2) {
+//   const firstNumArray = binaryArray(n1);
+//   const secondNumArray = binaryArray(n2);
+
+//   //compare
+//   const binaryORArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === "1" || secondNumArray[i] === "1" ? 1 : 0; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryORArray.push(digit);
+//   }
+//   // convert comparison result back to decimal
+//   const binaryORStr = binaryORArray.join("");
+//   // return decimal
+//   return Number.parseInt(binaryORStr, 2);
+// }
+
+// function bitwiseXOR(n1, n2) {
+//   const firstNumArray = binaryArray(n1);
+//   const secondNumArray = binaryArray(n2);
+
+//   //compare
+//   const binaryXORArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     const digit = firstNumArray[i] === secondNumArray[i] ? 0 : 1; // 1's in quotes here because the array elements are strings, not numbers
+//     binaryXORArray.push(digit);
+//   }
+//   // convert comparison result back to decimal
+//   const binaryXORStr = binaryXORArray.join("");
+//   // return decimal
+//   return Number.parseInt(binaryXORStr, 2);
+// }
+
+// --- APPROACH---
+// make one main function and add in one of the three operators separately when it's called
+// more than just operators though, so might need partial overlap function, and separate functions for comparison logic
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// THIRD ATTEMPT
+
+const binaryArray = (originalNum) => originalNum.toString(2).padStart(15, 0);
+
+function bitwise(firstNum, secondNum) {
+  const firstNumArray = binaryArray(firstNum);
+  const secondNumArray = binaryArray(secondNum);
+
+  //compare
+  const binaryComboArray = [];
+  for (let i = 0; i < firstNumArray.length; i++) {
+    const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
+    binaryComboArray.push(digit);
+  }
+
+  // convert comparison result back to decimal
+  const binaryComboStr = binaryComboArray.join("");
+
+  // return decimal
+  return Number.parseInt(binaryComboStr, 2);
+
+  // return [firstNumArray, secondNumArray];
+}
+// console.log(bitwise(7, 12));
+// console.log(bitwise(10, 11));
+
+function bitwiseAND(n1, n2) {
+  // const zeroOrOne = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
+  bitwise(n1, n2);
+}
+// function bitwiseAND(n1) {
+//   // const zeroOrOne = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
+//   bitwise(n1);
+// }
+
+console.log(bitwiseAND(7, 12));
+console.log(bitwiseAND(10, 11));
+
+// ---APPROACH---
+// simpler separate functions, just replace ternary operator logic
 
 // _____________________________________________________________________________
 // _____________________________________________________________________________
@@ -81,44 +221,22 @@ function bitwiseAND(n1, n2) {
 
 // ---POSSIBLE EDGE CASES---
 
-// input: 0                                        : return 0
 // input: none                                     : return error message
 // input: empty str, object, or array              : return error message
-// input: non-str, non-num                         : return error message
-// input: non-int str that starts with num         : convert to int (remove digits right of decimal)
-// input: str that starts with a number then text  : parse the number, convert to integer if necessary, convert that integer to binary
-// input: more than one str num                    : first will be converted, second input will be ignored
+// input: non-num                                  : return error message
+// input: non-int num                              : return error message
+// input: only one num                             : return error message
+// input: more than two num                        : first two will be converted/ compared, third or more will be ignored
 
 // _____________________________________________________________________________
 
 // // -----TESTS-----
 
-console.log(bitwiseAND(7, 12));
+// console.assert(bitwiseAND(7, 12) === 4, "7,12 and should equal 4");
+// console.log(bitwiseAND(7, 12));
 
-// console.log("0".padEnd(30, " >"), binary(0));
-// console.log("0".padEnd(30, " >"), binary("0"));
-// console.log("85".padEnd(30, " >"), binary(85));
-// console.log("10".padEnd(30, " >"), binary("10"));
-// console.log("-10".padEnd(30, " >"), binary(-10));
-// console.log("     9     ".padEnd(30, " >"), binary("     9     "));
-// console.log(
-//   "test non number string".padEnd(30, " >"),
-//   binary("test non number string")
-// );
-// console.log("3b".padEnd(30, " >"), binary("3b"));
-// console.log("16test".padEnd(30, " >"), binary("16test"));
-// console.log("12 test".padEnd(30, " >"), binary("12 test"));
-// console.log("-32 test".padEnd(30, " >"), binary("-32 test"));
-// console.log(" test 22".padEnd(30, " >"), binary(" test 22"));
-// console.log("1023".padEnd(30, " >"), binary("1023"));
-// console.log("1024".padEnd(30, " >"), binary("1024"));
-// console.log("27.5".padEnd(30, " >"), binary("27.5"));
-// console.log("true".padEnd(30, " >"), binary(true));
-// console.log(`10, 11`.padEnd(30, " >"), binary("10", "11"));
-// console.log("()".padEnd(30, " >"), binary());
-// console.log("''".padEnd(30, " >"), binary(""));
-// console.log("[]".padEnd(30, " >"), binary([]));
-// console.log("{}".padEnd(30, " >"), binary({}));
+// console.assert(bitwiseOR(7, 12) === 15, "7,12 or should equal 15");
+// console.log(bitwiseOR(7, 12));
 
-// console.assert(binary("10") === 1010, "no error");
-//   binary("test non number string") === "test non number string",
+// console.assert(bitwiseXOR(7, 12) === 11, "7,12 xor should equal 11");
+// console.log(bitwiseXOR(7, 12));
