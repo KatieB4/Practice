@@ -31,7 +31,7 @@
 // _____________________________________________________________________________
 // _____________________________________________________________________________
 
-// -----FIRST ATTEMPT-----
+// -----FIRST ATTEMPT----- COMPLETE
 // function bitwiseAND(n1, n2) {
 //   const convertToBinary = (decimal) => decimal.toString(2);
 //   const firstNumArray = [...convertToBinary(n1).padStart(15, 0)];
@@ -100,8 +100,9 @@
 
 // _____________________________________________________________________________
 // _____________________________________________________________________________
+// _____________________________________________________________________________
 
-// SECOND ATTEMPT
+// -----SECOND ATTEMPT----- COMPLETE
 // const convertToBinary = (decimal) => decimal.toString(2);
 // const binaryArray = (originalNum) => [
 //   ...convertToBinary(originalNum).padStart(15, 0),
@@ -163,46 +164,336 @@
 // _____________________________________________________________________________
 // _____________________________________________________________________________
 
-// THIRD ATTEMPT
+// -----THIRD ATTEMPT----- INCOMPLETE
 
-const binaryArray = (originalNum) => originalNum.toString(2).padStart(15, 0);
+// const binaryArray = (originalNum) => originalNum.toString(2).padStart(15, 0);
 
-function bitwise(firstNum, secondNum) {
-  const firstNumArray = binaryArray(firstNum);
-  const secondNumArray = binaryArray(secondNum);
+// function bitwise(
+//   firstNum,
+//   secondNum,
+//   zeroOrOneFirst,
+//   zeroOrOneSecond,
+//   opposite
+// ) {
+//   const firstNumArray = binaryArray(firstNum);
+//   const secondNumArray = binaryArray(secondNum);
 
-  //compare
-  const binaryComboArray = [];
-  for (let i = 0; i < firstNumArray.length; i++) {
-    const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
-    binaryComboArray.push(digit);
-  }
+//   //compare
+//   const binaryComboArray = [];
+//   for (let i = 0; i < firstNumArray.length; i++) {
+//     // const digit = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
+//     // const digit = zeroOrOne;
 
-  // convert comparison result back to decimal
-  const binaryComboStr = binaryComboArray.join("");
+//     const digit =
+//       firstNumArray[i] === zeroOrOneFirst &&
+//       secondNumArray[i] === zeroOrOneSecond
+//         ? zeroOrOneFirst
+//         : opposite;
 
-  // return decimal
-  return Number.parseInt(binaryComboStr, 2);
+//     binaryComboArray.push(digit);
+//   }
 
-  // return [firstNumArray, secondNumArray];
-}
-// console.log(bitwise(7, 12));
-// console.log(bitwise(10, 11));
+//   // convert comparison result back to decimal
+//   const binaryComboStr = binaryComboArray.join("");
 
-function bitwiseAND(n1, n2) {
-  // const zeroOrOne = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
-  bitwise(n1, n2);
-}
-// function bitwiseAND(n1) {
-//   // const zeroOrOne = firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0;
-//   bitwise(n1);
+//   // return decimal
+//   return Number.parseInt(binaryComboStr, 2);
 // }
 
-console.log(bitwiseAND(7, 12));
-console.log(bitwiseAND(10, 11));
+// function bitwiseAND(n1, n2) {
+//   const firstLogic = "1";
+//   const secondLogic = "1";
+//   const oppositeLogic = "0";
+//   // `${
+//   //   firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0
+//   // }`;
+//   // return bitwise(n1, n2, andEquation);
+//   return bitwise(n1, n2, firstLogic, secondLogic, oppositeLogic);
+// }
+
+// // function bitwiseOR(n1, n2) {
+// //   const firstLogic = "1";
+// //   const secondLogic = "1";
+// //   const oppositeLogic = "0";
+
+// //   return bitwise(n1, n2, firstLogic, secondLogic, oppositeLogic);
+// // }
+
+// function bitwiseXOR(n1, n2) {
+//   const firstLogic = k;
+//   const secondLogic = "1";
+//   const oppositeLogic = "0";
+
+//   return bitwise(n1, n2, firstLogic, secondLogic, oppositeLogic);
+// }
+
+// console.log(bitwiseAND(7, 12));
+// console.log(bitwiseAND(10, 11));
 
 // ---APPROACH---
 // simpler separate functions, just replace ternary operator logic
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// -----FOURTH ATTEMPT----- INCOMPLETE
+// const convertToBinary = (originalNum) =>
+//   originalNum.toString(2).padStart(15, 0);
+// // const firstNumBinaryConvert = (firstNum) => convertToBinary(firstNum);
+
+// function bitwise(firstNum, secondNum, operator) {
+//   const firstNumBinary = convertToBinary(firstNum);
+//   const secondNumBinary = convertToBinary(secondNum);
+
+//   //compare
+//   const binaryComboArray = [];
+//   const whichOperation = operator;
+
+//   for (let i = 0; i < firstNumBinary.length; i++) {
+//     const digit =
+//       firstNumBinary[i] === "1" && secondNumBinary[i] === "1" ? 1 : 0;
+
+//     binaryComboArray.push(digit);
+//   }
+
+//   // convert comparison result back to decimal
+//   const binaryComboStr = binaryComboArray.join("");
+
+//   // return decimal
+//   return Number.parseInt(binaryComboStr, 2);
+// }
+
+// function bitwiseAND(n1, n2) {
+//   // const firstLogic = "1";
+//   // const secondLogic = "1";
+//   // const oppositeLogic = "0";
+//   // `${
+//   //   firstNumArray[i] === "1" && secondNumArray[i] === "1" ? 1 : 0
+//   // }`;
+//   // return bitwise(n1, n2, andEquation);
+//   const operation = "xor";
+
+//   return bitwise(n1, n2, operation);
+// }
+
+// function bitwiseOR(n1, n2) {
+//   const firstLogic = "1";
+//   const secondLogic = "1";
+//   const oppositeLogic = "0";
+
+//   return bitwise(n1, n2, firstLogic, secondLogic, oppositeLogic);
+// }
+
+// function bitwiseXOR(n1, n2) {
+//   const firstLogic = k;
+//   const secondLogic = "1";
+//   const oppositeLogic = "0";
+
+//   return bitwise(n1, n2, firstLogic);
+// }
+
+// // ---APPROACH---
+// // continuation of third attempt (while third is still unsolved), but without deleting the third
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// -----FIFTH ATTEMPT----- COMPLETE
+// const convertToBinary = (originalNum) =>
+//   originalNum.toString(2).padStart(15, 0);
+
+// function bitwise(firstNum, secondNum, operator) {
+//   const firstNumBinary = convertToBinary(firstNum);
+//   const secondNumBinary = convertToBinary(secondNum);
+//   const binaryComboArray = [];
+
+//   for (let i = 0; i < firstNumBinary.length; i++) {
+//     let digit;
+//     if (operator === "and") {
+//       digit = firstNumBinary[i] === "1" && secondNumBinary[i] === "1" ? 1 : 0;
+//     } else if (operator === "or") {
+//       digit = firstNumBinary[i] === "1" || secondNumBinary[i] === "1" ? 1 : 0;
+//     } else if (operator === "xor") {
+//       digit = firstNumBinary[i] === secondNumBinary[i] ? 0 : 1;
+//     }
+//     binaryComboArray.push(digit);
+//   }
+
+//   const binaryComboStr = binaryComboArray.join("");
+
+//   return Number.parseInt(binaryComboStr, 2);
+// }
+
+// function bitwiseAND(n1, n2) {
+//   const operation = "and";
+//   return bitwise(n1, n2, operation);
+// }
+
+// function bitwiseOR(n1, n2) {
+//   const operation = "or";
+//   return bitwise(n1, n2, operation);
+// }
+
+// function bitwiseXOR(n1, n2) {
+//   const operation = "xor";
+//   return bitwise(n1, n2, operation);
+// }
+
+// Approach
+// cleaned up 4th
+// if statement to determine which version of digit to use
+// this method is still not ideal because the loop rechecks the same info (if statement) at every iteration of the for loop
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// -----SIXTH ATTEMPT----- COMPLETE
+// const convertToBinary = (originalNum) =>
+//   originalNum.toString(2).padStart(15, 0);
+
+// function bitwise(firstNum, secondNum, operator) {
+//   const firstNumBinary = convertToBinary(firstNum);
+//   const secondNumBinary = convertToBinary(secondNum);
+//   const binaryComboArray = [];
+//   let digit;
+
+//   if (operator === "and") {
+//     for (let i = 0; i < firstNumBinary.length; i++) {
+//       digit = firstNumBinary[i] === "1" && secondNumBinary[i] === "1" ? 1 : 0;
+//       binaryComboArray.push(digit);
+//     }
+//   } else if (operator === "or") {
+//     for (let i = 0; i < firstNumBinary.length; i++) {
+//       digit = firstNumBinary[i] === "1" || secondNumBinary[i] === "1" ? 1 : 0;
+//       binaryComboArray.push(digit);
+//     }
+//   } else if (operator === "xor") {
+//     for (let i = 0; i < firstNumBinary.length; i++) {
+//       digit = firstNumBinary[i] === secondNumBinary[i] ? 0 : 1;
+//       binaryComboArray.push(digit);
+//     }
+//   }
+
+//   const binaryComboStr = binaryComboArray.join("");
+
+//   return Number.parseInt(binaryComboStr, 2);
+// }
+
+// function bitwiseAND(n1, n2) {
+//   const operation = "and";
+//   return bitwise(n1, n2, operation);
+// }
+
+// function bitwiseOR(n1, n2) {
+//   const operation = "or";
+//   return bitwise(n1, n2, operation);
+// }
+
+// function bitwiseXOR(n1, n2) {
+//   const operation = "xor";
+//   return bitwise(n1, n2, operation);
+// }
+
+// Approach
+// if statements to determine which version of digit to use
+// like 5th answer, but with for loops inside of if statements, so the if statement is only answered once instead of each iteration of loop- longer code, but probably faster?
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// SEVENTH ATTEMPT INCOMPLETE
+// const convertToBinary = (originalNum) =>
+//   originalNum.toString(2).padStart(15, 0);
+
+// function bitwise(firstNum, secondNum, whichOperator) {
+//   const firstNumBinary = convertToBinary(firstNum);
+//   const secondNumBinary = convertToBinary(secondNum);
+//   const binaryComboArray = [];
+
+//   for (let i = 0; i < firstNumBinary.length; i++) {
+//     const digit =
+//       firstNumBinary[i] === "1" && secondNumBinary[i] === "1" ? 1 : 0;
+
+//     binaryComboArray.push(digit);
+//   }
+
+//   const binaryComboStr = binaryComboArray.join("");
+
+//   return Number.parseInt(binaryComboStr, 2);
+// }
+
+// function bitwiseAND(n1, n2) {
+//   const operation = "and";
+//   return bitwise(n1, n2, operation);
+// }
+
+// console.log(bitwiseAND(7, 12));
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+
+// EIGHTH ATTEMPT COMPLETE
+
+const convertToBinary = (originalNum) => originalNum.toString(2);
+
+function bitwise(firstNum, secondNum, operator) {
+  let firstNumBinary = convertToBinary(firstNum);
+  let secondNumBinary = convertToBinary(secondNum);
+  const binaryLength =
+    firstNumBinary.length > secondNumBinary.length
+      ? firstNumBinary.length
+      : secondNumBinary.length;
+  firstNumBinary = firstNumBinary.padStart(binaryLength, 0);
+  secondNumBinary = secondNumBinary.padStart(binaryLength, 0);
+
+  const binaryComboArray = [];
+  let digit;
+
+  if (operator === "and") {
+    for (let i = 0; i < binaryLength; i++) {
+      digit = firstNumBinary[i] === "1" && secondNumBinary[i] === "1" ? 1 : 0;
+      binaryComboArray.push(digit);
+    }
+  } else if (operator === "or") {
+    for (let i = 0; i < binaryLength; i++) {
+      digit = firstNumBinary[i] === "1" || secondNumBinary[i] === "1" ? 1 : 0;
+      binaryComboArray.push(digit);
+    }
+  } else if (operator === "xor") {
+    for (let i = 0; i < binaryLength; i++) {
+      digit = firstNumBinary[i] === secondNumBinary[i] ? 0 : 1;
+      binaryComboArray.push(digit);
+    }
+  }
+
+  const binaryComboStr = binaryComboArray.join("");
+
+  return Number.parseInt(binaryComboStr, 2);
+}
+
+function bitwiseAND(n1, n2) {
+  const operation = "and";
+  return bitwise(n1, n2, operation);
+}
+
+function bitwiseOR(n1, n2) {
+  const operation = "or";
+  return bitwise(n1, n2, operation);
+}
+
+function bitwiseXOR(n1, n2) {
+  const operation = "xor";
+  return bitwise(n1, n2, operation);
+}
+
+// Approach
+// 7/24/23: copied 6th, with for loops inside if statements as starting point
+// compare binary lengths, and only pad start as much as longest number, then set the limit in the loop to that dynamic length instead of hard-coding a length (15 in previous versions)
 
 // _____________________________________________________________________________
 // _____________________________________________________________________________
@@ -232,11 +523,11 @@ console.log(bitwiseAND(10, 11));
 
 // // -----TESTS-----
 
-// console.assert(bitwiseAND(7, 12) === 4, "7,12 and should equal 4");
-// console.log(bitwiseAND(7, 12));
+console.assert(bitwiseAND(7, 12) === 4, "7,12 and should equal 4");
+console.log(bitwiseAND(7, 12));
 
-// console.assert(bitwiseOR(7, 12) === 15, "7,12 or should equal 15");
-// console.log(bitwiseOR(7, 12));
+console.assert(bitwiseOR(7, 12) === 15, "7,12 or should equal 15");
+console.log(bitwiseOR(7, 12));
 
-// console.assert(bitwiseXOR(7, 12) === 11, "7,12 xor should equal 11");
-// console.log(bitwiseXOR(7, 12));
+console.assert(bitwiseXOR(7, 12) === 11, "7,12 xor should equal 11");
+console.log(bitwiseXOR(7, 12));
