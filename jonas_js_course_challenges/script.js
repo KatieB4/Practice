@@ -742,16 +742,20 @@ const poll = {
   answers: new Array(4).fill(0),
   // answers: [0,0,0,0]; //same as above
 
-  choose: function () {
+  registerNewAnswer: function () {
     let choice = prompt(`${this.question} (Write option number)`);
+
+    // let choice = function () {
+    //   prompt(`${this.question} (Write option number)`);
+    // };
+
+    // choice.bind(registerNewAnswer);
+
+    // choice();
+
     // console.log(choice, typeof choice);
     choice = Number(choice);
     // console.log(choice, typeof choice);
-    return choice;
-  },
-
-  registerNewAnswer: function () {
-    this.choose();
 
     if (
       // typeof choice !== "number" &&
